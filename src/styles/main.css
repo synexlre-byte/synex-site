@@ -709,4 +709,154 @@ input, button, textarea, select {
     }
 }
 
-/* FIM DO ARQUIVO */
+/* ========== PROJECTS ========== */
+.projects-section {
+    padding: 4rem 1.5rem;
+}
+
+.projects-grid {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+@media (min-width: 1200px) {
+    .projects-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.project-card {
+    background-color: transparent;
+    height: 300px;
+    perspective: 1000px;
+    border-radius: 18px;
+}
+
+.project-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.project-card:hover .project-card-inner {
+    transform: rotateY(180deg);
+}
+
+.project-card-front,
+.project-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 18px;
+    overflow: hidden; /* Garante que a imagem não vaze das bordas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.project-card-back {
+    transform: rotateY(180deg);
+}
+
+/* ESTILOS PARA IMAGENS DENTRO DOS CARDS */
+.project-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cobre todo o espaço sem distorcer */
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.1); /* Efeito de zoom sutil no hover */
+}
+
+/* FAIXA SEMITRANSPARENTE PARA O TÍTULO NA FRENTE */
+.title-backdrop {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    z-index: 2;
+    text-align: center;
+}
+
+.project-title {
+    font-size: 1.4rem;
+    margin: 0;
+    color: #fff;
+}
+
+/* EFEITO DE SOBREPOSIÇÃO NO VERSO DO CARD */
+.project-image-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Filtro para escurecer e tirar o foco da imagem de fundo */
+    filter: brightness(0.4) opacity(0.5);
+}
+
+.project-card-back::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradiente que garante a legibilidade do texto */
+    background: radial-gradient(circle, rgba(18, 28, 90, 0.5) 0%, rgba(8, 10, 26, 0.9) 100%);
+    z-index: 1;
+}
+
+/* CONTEÚDO DO VERSO DO CARD */
+.card-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.project-desc {
+    color: #b8bdd0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.project-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.tech-tag {
+    background-color: var(--accent-color);
+    color: var(--button-primary-text);
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
