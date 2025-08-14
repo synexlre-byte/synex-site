@@ -581,7 +581,7 @@ input, button, textarea, select {
     }
 
     .divider-banner {
-    margin-top: -25vh; /* Puxa o banner para cima */
+    margin-top: -19vh; /* Puxa o banner para cima */
 }
 
     .nav-toggle {
