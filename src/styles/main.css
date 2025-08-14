@@ -580,6 +580,10 @@ input, button, textarea, select {
         padding: 1rem 1.5rem;
     }
 
+    .divider-banner {
+    margin-top: -25vh; /* Puxa o banner para cima */
+}
+
     .nav-toggle {
         display: block;
     }
