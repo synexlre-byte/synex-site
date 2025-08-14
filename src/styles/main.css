@@ -744,9 +744,9 @@ input, button, textarea, select {
     transform-style: preserve-3d;
 }
 
-.project-card:hover .project-card-inner {
-    transform: rotateY(180deg);
-}
+.project-card:hover .project-card-inner,
+.project-card-inner.is-flipped {
+    transform: rotateY(180deg);}
 
 .project-card-front,
 .project-card-back {
