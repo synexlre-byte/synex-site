@@ -16,8 +16,8 @@
         #000000 0%,
         #0d1117 25%,
         #0c192d 50%,
-        #05157f 75%,
-        #001079 100%
+        #011263 75%,
+        #011263 100%
     );
 }
 
@@ -775,7 +775,7 @@ input, button, textarea, select {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cobre todo o espaço sem distorcer */
+    object-fit: contain; /* Cobre todo o espaço sem distorcer */
     transition: transform 0.4s ease;
 }
 
